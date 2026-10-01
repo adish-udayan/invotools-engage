@@ -1,3 +1,5 @@
+import { ScrollBlurText } from "./scroll-blur-text"
+
 const cards = [
   {
     title: "Customers chase answers",
@@ -30,9 +32,10 @@ export function ProductSection() {
           <p className="mb-6 text-xs font-semibold uppercase tracking-[0.08em] text-[#111111]">
             The cost of disconnected experiences
           </p>
-          <h2 className="text-balance text-4xl font-serif font-bold leading-[1.12] tracking-[-0.04em] sm:text-5xl lg:text-6xl">
-            Your tools do their jobs. Is the customer journey connected?
-          </h2>
+          <ScrollBlurText
+            text="Your tools do their jobs. Is the customer journey connected?"
+            className="text-balance text-4xl font-serif font-bold leading-[1.12] tracking-[-0.04em] sm:text-5xl lg:text-6xl text-[#0b1d35]"
+          />
           <p className="mt-6 text-base leading-relaxed text-[#222222] sm:text-lg">
             You invest in winning the purchase. What happens next shapes the customer relationship—and the opportunity to earn the next sale.
           </p>

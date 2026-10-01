@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { AnimatedText } from '@/components/animated-text';
+import { ScrollBlurText } from '@/components/scroll-blur-text';
 
 const HERO_IMAGE_URL =
   'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/6487-yhxzvyigZh7nyt2fKMUQUd2fRz2jtV.jpg';
@@ -57,10 +58,10 @@ export function HeroSection() {
               Post-Purchase Customer Engagement Platform for Commerce Brands and
               Retailers
             </p>
-            <h1 className="mb-8 font-serif text-4xl font-bold leading-[1.1] tracking-[-0.045em] text-[#0b1d35] text-balance sm:text-5xl lg:text-6xl xl:text-7xl">
-              Turn every purchase into an opportunity for repeat revenue and
-              stronger customer relationships.
-            </h1>
+            <ScrollBlurText
+              text="Turn every purchase into an opportunity for repeat revenue and stronger customer relationships."
+              className="mb-8 font-serif text-4xl font-bold leading-[1.1] tracking-[-0.045em] text-[#0b1d35] text-balance sm:text-5xl lg:text-6xl xl:text-7xl"
+            />
             <p className="reveal mb-4 max-w-2xl text-base leading-relaxed text-[#111827] opacity-0 animate-fade-up animation-delay-400 sm:text-lg">
               InvoTools Engage connects purchase information, helpful guidance,
               and relevant recommendations in one branded experience—helping
