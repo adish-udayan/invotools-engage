@@ -243,6 +243,106 @@ html {
   }
 }
 
+/* How it fits: systems -> Engage -> portal. One 5s cycle: pulses converge into
+   the hub, the hub responds, then pulses fan out to the portal. */
+.fit-track {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fit-diagram.is-active .fit-track {
+  stroke-dashoffset: 0;
+}
+
+.fit-pulse {
+  stroke-dasharray: 12 200;
+  stroke-dashoffset: 12;
+  opacity: 0;
+}
+
+.fit-diagram.is-active .fit-pulse-in {
+  animation: fit-flow-in 5s cubic-bezier(0.45, 0, 0.35, 1) 1.2s infinite both;
+}
+
+.fit-diagram.is-active .fit-pulse-out {
+  animation: fit-flow-out 5s cubic-bezier(0.45, 0, 0.35, 1) 1.2s infinite both;
+}
+
+.fit-hub-halo,
+.fit-hub-core,
+.fit-portal-cta {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.fit-hub-halo {
+  opacity: 0;
+}
+
+.fit-diagram.is-active .fit-hub-halo {
+  animation: fit-hub-halo 5s ease-out 1.2s infinite both;
+}
+
+.fit-diagram.is-active .fit-hub-core {
+  animation: fit-hub-core 5s ease-in-out 1.2s infinite both;
+}
+
+.fit-diagram.is-active .fit-portal-cta {
+  animation: fit-portal-cta 5s ease-in-out 1.2s infinite both;
+}
+
+@keyframes fit-flow-in {
+  0% { stroke-dashoffset: 12; opacity: 0; }
+  4% { opacity: 1; }
+  34% { stroke-dashoffset: -100; opacity: 1; }
+  35%, 100% { stroke-dashoffset: -100; opacity: 0; }
+}
+
+@keyframes fit-flow-out {
+  0%, 44% { stroke-dashoffset: 12; opacity: 0; }
+  48% { opacity: 1; }
+  76% { stroke-dashoffset: -100; opacity: 1; }
+  77%, 100% { stroke-dashoffset: -100; opacity: 0; }
+}
+
+@keyframes fit-hub-halo {
+  0%, 36% { opacity: 0; transform: scale(1); }
+  40% { opacity: 0.45; transform: scale(1); }
+  62%, 100% { opacity: 0; transform: scale(1.22); }
+}
+
+@keyframes fit-hub-core {
+  0%, 36% { transform: scale(1); }
+  42% { transform: scale(1.04); }
+  52%, 100% { transform: scale(1); }
+}
+
+@keyframes fit-portal-cta {
+  0%, 76% { opacity: 1; }
+  82% { opacity: 0.55; }
+  90%, 100% { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fit-track {
+    stroke-dashoffset: 0;
+    transition: none;
+  }
+
+  .fit-diagram.is-active .fit-pulse,
+  .fit-diagram.is-active .fit-hub-halo,
+  .fit-diagram.is-active .fit-hub-core,
+  .fit-diagram.is-active .fit-portal-cta {
+    animation: none;
+  }
+
+  .fit-pulse,
+  .fit-hub-halo {
+    display: none;
+  }
+}
+
 /* Hide scrollbar for carousel while maintaining scroll functionality */
 .scrollbar-hide {
   -ms-overflow-style: none;

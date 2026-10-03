@@ -5,6 +5,15 @@ import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
+// Each href must match a section id on the homepage.
+const navItems = [
+  { label: 'Customer Journey', href: '#customer-journey' },
+  { label: 'How It Works', href: '#how-it-works' },
+  { label: 'How It Fits', href: '#how-it-fits' },
+  { label: 'Business Value', href: '#business-value' },
+  { label: 'FAQ', href: '#faq' },
+];
+
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -25,29 +34,20 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-10">
-            <Link
-              href="#customer-journey"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Customer Journey
-            </Link>
-            <Link
-              href="#how-it-fits"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              How It Fits
-            </Link>
-            <Link
-              href="#business-value"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Business Value
-            </Link>
+          <div className="hidden lg:flex items-center gap-8 xl:gap-10">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {item.label}
+              </Link>
+            ))}
           </div>
 
           {/* CTA Button */}
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <Button
               asChild
               className="rounded-full bg-[#0b1d35] px-8 py-2 text-sm text-white hover:bg-[#163458] font-medium"
@@ -58,9 +58,10 @@ export function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2"
+            className="lg:hidden p-2"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
+            aria-expanded={isOpen}
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -68,29 +69,18 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden py-6 px-6 lg:px-8 border-t border-border/50">
+          <div className="lg:hidden py-6 px-6 lg:px-8 border-t border-border/50">
             <div className="flex flex-col gap-4">
-              <Link
-                href="#customer-journey"
-                className="text-lg text-muted-foreground hover:text-foreground transition-colors"
-                onClick={() => setIsOpen(false)}
-              >
-                Customer Journey
-              </Link>
-              <Link
-                href="#how-it-fits"
-                className="text-lg text-muted-foreground hover:text-foreground transition-colors"
-                onClick={() => setIsOpen(false)}
-              >
-                How It Fits
-              </Link>
-              <Link
-                href="#business-value"
-                className="text-lg text-muted-foreground hover:text-foreground transition-colors"
-                onClick={() => setIsOpen(false)}
-              >
-                Business Value
-              </Link>
+              {navItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="text-lg text-muted-foreground hover:text-foreground transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ))}
               <Button
                 asChild
                 className="rounded-full bg-[#0b1d35] w-full mt-4 text-white hover:bg-[#163458] font-medium"

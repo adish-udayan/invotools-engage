@@ -60,9 +60,9 @@ export function Footer() {
     <footer className="bg-[#0F1B2E] text-white py-20 lg:py-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Brand and Links Container */}
-        <div className="grid lg:grid-cols-5 gap-12 lg:gap-8 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-10 md:gap-x-8 lg:gap-y-12 mb-16">
           {/* Brand */}
-          <div className="lg:col-span-1 lg:row-span-2">
+          <div className="col-span-2 md:col-span-3 lg:col-span-1 lg:row-span-2">
             <Link href="/" className="flex items-center gap-3 mb-6">
               <img
                 src="/images/logo.svg"

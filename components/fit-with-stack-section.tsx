@@ -59,33 +59,25 @@ export function FitWithStackSection() {
         />
 
         {/* Gap points */}
+        {/* Single list in reading order: one column on mobile, two from md (dividers only between rows). */}
         <div className="reveal grid md:grid-cols-2 gap-x-16 lg:gap-x-24 mb-16">
-          <div>
-            {gapPoints
-              .filter((_, index) => index % 2 === 0)
-              .map((point, i) => (
-                <div
-                  key={point.title}
-                  className={`py-10 first:pt-0 last:pb-0 ${i > 0 ? "border-t border-slate-300" : ""}`}
-                >
-                  <h3 className="text-lg font-bold text-slate-900 mb-4">{point.title}</h3>
-                  <p className="text-slate-600 leading-relaxed">{point.description}</p>
-                </div>
-              ))}
-          </div>
-          <div>
-            {gapPoints
-              .filter((_, index) => index % 2 === 1)
-              .map((point, i) => (
-                <div
-                  key={point.title}
-                  className={`py-10 first:pt-0 last:pb-0 ${i > 0 ? "border-t border-slate-300" : ""}`}
-                >
-                  <h3 className="text-lg font-bold text-slate-900 mb-4">{point.title}</h3>
-                  <p className="text-slate-600 leading-relaxed">{point.description}</p>
-                </div>
-              ))}
-          </div>
+          {gapPoints.map((point, index) => {
+            const isLast = index === gapPoints.length - 1
+            const inFirstRow = index < 2
+            return (
+              <div
+                key={point.title}
+                className={[
+                  index > 0 ? "border-t border-slate-300 pt-10" : "",
+                  isLast ? "" : "pb-10",
+                  inFirstRow ? "md:border-t-0 md:pt-0 md:pb-10" : "md:pb-0",
+                ].join(" ")}
+              >
+                <h3 className="text-lg font-bold text-slate-900 mb-4">{point.title}</h3>
+                <p className="text-slate-600 leading-relaxed">{point.description}</p>
+              </div>
+            )
+          })}
         </div>
 
         {/* Closing test statement */}

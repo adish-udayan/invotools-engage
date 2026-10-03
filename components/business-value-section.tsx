@@ -39,7 +39,7 @@ export function BusinessValueSection() {
           </p>
           <ScrollBlurText
             text="Make post-purchase count where it matters."
-            className="font-serif text-xl md:text-2xl lg:text-3xl xl:text-4xl text-[#122A45] mb-6 font-bold whitespace-nowrap mx-auto"
+            className="font-serif text-xl md:text-2xl lg:text-3xl xl:text-4xl text-[#122A45] mb-6 font-bold text-balance md:whitespace-nowrap mx-auto"
             disableTransition={true}
             disableBlur={true}
           />
@@ -50,7 +50,7 @@ export function BusinessValueSection() {
         </div>
 
         {/* Value cards */}
-        <div className="reveal animation-delay-200 grid md:grid-cols-3 gap-6 mb-20">
+        <div className="reveal animation-delay-200 grid lg:grid-cols-3 gap-6 mb-20">
           {valueCards.map((card) => (
             <div key={card.title} className="rounded-2xl bg-white p-8 flex flex-col">
               <h3 className="text-xl font-semibold text-slate-900 leading-snug mb-4">{card.title}</h3>

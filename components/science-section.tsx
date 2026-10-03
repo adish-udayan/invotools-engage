@@ -87,7 +87,7 @@ export function ScienceSection() {
   // Animation disabled - all text animations removed from landing page
 
   return (
-    <section ref={sectionRef} id="science" className="py-24 lg:py-32 bg-background">
+    <section ref={sectionRef} id="customer-journey" className="py-24 lg:py-32 bg-background">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16 lg:mb-20">
