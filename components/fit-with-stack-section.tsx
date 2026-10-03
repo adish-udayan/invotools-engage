@@ -29,37 +29,23 @@ const gapPoints = [
 export function FitWithStackSection() {
   const sectionRef = useRef<HTMLElement>(null)
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-fade-up")
-          }
-        })
-      },
-      { threshold: 0.1 },
-    )
-
-    const elements = sectionRef.current?.querySelectorAll(".reveal")
-    elements?.forEach((el) => observer.observe(el))
-
-    return () => observer.disconnect()
-  }, [])
+  // Animation disabled - all text animations removed from landing page
 
   return (
     <section ref={sectionRef} id="fit-with-stack" className="py-24 lg:py-32 bg-background">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16 lg:mb-20">
-          <p className="reveal opacity-0 text-sm uppercase tracking-[0.2em] text-foreground font-bold mb-6">
+          <p className="reveal text-sm uppercase tracking-[0.2em] text-foreground font-bold mb-6">
             Fit with your existing stack
           </p>
           <ScrollBlurText
             text="Build on your commerce investments. Connect the gaps in the experience."
-            className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#122A45] text-balance mb-6 font-bold max-w-4xl mx-auto"
+            className="font-serif text-xl md:text-2xl lg:text-3xl xl:text-4xl text-[#122A45] text-balance mb-6 font-bold max-w-4xl mx-auto"
+            disableTransition={true}
+            disableBlur={true}
           />
-          <p className="reveal opacity-0 animation-delay-400 text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="reveal animation-delay-400 text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
             Start with a specific gap in your post-purchase journey. Identify where customers need more continuity
             across the tools you already use.
           </p>
@@ -69,11 +55,11 @@ export function FitWithStackSection() {
         <img
           src="/images/fit-with-stack-visual.png"
           alt="Diagram showing how Invotools Engage connects existing commerce systems to customer experiences"
-          className="reveal opacity-0 animation-delay-200 w-full h-auto rounded-3xl mb-20 lg:mb-24"
+          className="reveal animation-delay-200 w-full h-auto rounded-3xl mb-20 lg:mb-24"
         />
 
         {/* Gap points */}
-        <div className="reveal opacity-0 grid md:grid-cols-2 gap-x-16 lg:gap-x-24 mb-16">
+        <div className="reveal grid md:grid-cols-2 gap-x-16 lg:gap-x-24 mb-16">
           <div>
             {gapPoints
               .filter((_, index) => index % 2 === 0)
@@ -103,7 +89,7 @@ export function FitWithStackSection() {
         </div>
 
         {/* Closing test statement */}
-        <div className="reveal opacity-0 animation-delay-200">
+        <div className="reveal animation-delay-200">
           <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
             The test: can customers complete the task and can your team maintain and measure the experience?
           </h3>

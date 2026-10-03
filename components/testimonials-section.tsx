@@ -44,24 +44,6 @@ export function TestimonialsSection() {
   const scrollRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-fade-up")
-          }
-        })
-      },
-      { threshold: 0.1 },
-    )
-
-    const elements = sectionRef.current?.querySelectorAll(".reveal")
-    elements?.forEach((el) => observer.observe(el))
-
-    return () => observer.disconnect()
-  }, [])
-
-  useEffect(() => {
     const scrollContainer = scrollRef.current
     if (!scrollContainer) return
 
@@ -106,7 +88,7 @@ export function TestimonialsSection() {
       {/* Section Header */}
       <div className="w-full">
         <div className="text-center mb-16 lg:mb-20 px-6">
-          <p className="reveal opacity-0 text-sm uppercase tracking-[0.2em] text-secondary font-medium mb-4">
+          <p className="reveal text-sm uppercase tracking-[0.2em] text-secondary font-medium mb-4">
             Testimonials
           </p>
           <ScrollBlurText
@@ -115,7 +97,7 @@ export function TestimonialsSection() {
           />
         </div>
 
-        <div className="reveal opacity-0 animation-delay-400">
+        <div className="reveal animation-delay-400">
           <div ref={scrollRef} className="flex gap-6 overflow-x-hidden" style={{ scrollBehavior: "auto" }}>
             {duplicatedTestimonials.map((testimonial, index) => (
               <div

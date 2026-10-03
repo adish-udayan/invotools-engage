@@ -82,35 +82,21 @@ export function FaqSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fade-up');
-          }
-        });
-      },
-      { threshold: 0.1 },
-    );
-
-    const elements = sectionRef.current?.querySelectorAll('.reveal');
-    elements?.forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
+  // Animation disabled - all text animations removed from landing page
 
   return (
     <section ref={sectionRef} id="faq" className="py-24 lg:py-32 bg-background">
       <div className="max-w-5xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16 lg:mb-20">
-          <p className="reveal opacity-0 text-sm uppercase tracking-[0.2em] text-foreground font-bold mb-6">
+          <p className="reveal text-sm uppercase tracking-[0.2em] text-foreground font-bold mb-6">
             Questions & Answers
           </p>
           <ScrollBlurText
             text="Frequently asked questions"
-            className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#122A45] text-balance mb-6 font-bold max-w-3xl mx-auto"
+            className="font-serif text-xl md:text-2xl lg:text-3xl xl:text-4xl text-[#122A45] text-balance mb-6 font-bold max-w-3xl mx-auto"
+            disableTransition={true}
+            disableBlur={true}
           />
         </div>
 
@@ -119,7 +105,7 @@ export function FaqSection() {
           {faqs.map((faq, index) => (
             <div
               key={faq.question}
-              className="reveal opacity-0 border-b border-slate-300 last:border-b-0"
+              className="reveal border-b border-slate-300 last:border-b-0"
             >
               <button
                 onClick={() =>

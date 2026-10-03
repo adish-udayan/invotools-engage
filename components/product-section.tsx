@@ -34,7 +34,9 @@ export function ProductSection() {
           </p>
           <ScrollBlurText
             text="Your tools do their jobs. Is the customer journey connected?"
-            className="text-balance text-4xl font-serif font-bold leading-[1.12] tracking-[-0.04em] sm:text-5xl lg:text-6xl text-[#0b1d35]"
+            className="text-balance text-xl font-serif font-bold leading-[1.12] tracking-[-0.04em] sm:text-2xl lg:text-3xl xl:text-4xl text-[#0b1d35]"
+            disableTransition={true}
+            disableBlur={true}
           />
           <p className="mt-6 text-base leading-relaxed text-[#222222] sm:text-lg">
             You invest in winning the purchase. What happens next shapes the customer relationship—and the opportunity to earn the next sale.

@@ -84,37 +84,23 @@ const possibilities = [
 export function ScienceSection() {
   const sectionRef = useRef<HTMLElement>(null)
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-fade-up")
-          }
-        })
-      },
-      { threshold: 0.1 },
-    )
-
-    const elements = sectionRef.current?.querySelectorAll(".reveal")
-    elements?.forEach((el) => observer.observe(el))
-
-    return () => observer.disconnect()
-  }, [])
+  // Animation disabled - all text animations removed from landing page
 
   return (
     <section ref={sectionRef} id="science" className="py-24 lg:py-32 bg-background">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16 lg:mb-20">
-          <p className="reveal opacity-0 text-sm uppercase tracking-[0.2em] text-foreground font-bold mb-6">
+          <p className="reveal text-sm uppercase tracking-[0.2em] text-foreground font-bold mb-6">
             The Post-Purchase Customer Journey
           </p>
           <ScrollBlurText
             text="Help customers get more from this purchase and find a reason for the next."
-            className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#122A45] text-balance mb-6 font-bold max-w-4xl mx-auto"
+            className="font-serif text-xl md:text-2xl lg:text-3xl xl:text-4xl text-[#122A45] text-balance mb-6 font-bold max-w-4xl mx-auto"
+            disableTransition={true}
+            disableBlur={true}
           />
-          <p className="reveal opacity-0 animation-delay-400 text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="reveal animation-delay-400 text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Bring purchase information, timely guidance, and relevant next steps together in your branded customer
             portal—helping customers throughout product ownership while creating opportunities for repeat revenue
             and more efficient service.
@@ -122,7 +108,7 @@ export function ScienceSection() {
         </div>
 
         {/* Journey Stages */}
-        <div className="reveal opacity-0 animation-delay-200 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-16 lg:mb-20">
+        <div className="reveal animation-delay-200 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-16 lg:mb-20">
           {journeyStages.map((item) => (
             <div key={item.stage} className="rounded-2xl border border-border bg-muted/40 p-6 flex flex-col">
               <p className="text-xs font-semibold uppercase tracking-wide text-teal-600 mb-3">{item.stage}</p>
@@ -138,7 +124,7 @@ export function ScienceSection() {
         </div>
 
         {/* Banner */}
-        <div className="reveal opacity-0 animation-delay-400 rounded-3xl overflow-hidden grid grid-cols-1 lg:grid-cols-2 bg-primary mb-16 lg:mb-20">
+        <div className="reveal animation-delay-400 rounded-3xl overflow-hidden grid grid-cols-1 lg:grid-cols-2 bg-primary mb-16 lg:mb-20">
           <div className="flex items-center p-10 lg:p-16">
             <h3 className="font-serif text-2xl md:text-3xl text-primary-foreground font-medium text-balance">
               Let the customer&rsquo;s situation guide the next interaction.
@@ -154,7 +140,7 @@ export function ScienceSection() {
         </div>
 
         {/* Explore more possibilities */}
-        <div className="reveal opacity-0">
+        <div className="reveal">
           <h3 className="font-serif text-2xl md:text-3xl text-foreground font-medium mb-3">
             Explore more post-purchase possibilities
           </h3>

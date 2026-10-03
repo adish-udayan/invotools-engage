@@ -7,9 +7,11 @@ interface ScrollBlurTextProps {
   className?: string
   startBlur?: number
   endBlur?: number
+  disableTransition?: boolean
+  disableBlur?: boolean
 }
 
-export function ScrollBlurText({ text, className = "", startBlur = 80, endBlur = 0 }: ScrollBlurTextProps) {
+export function ScrollBlurText({ text, className = "", startBlur = 80, endBlur = 0, disableTransition = false, disableBlur = false }: ScrollBlurTextProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const [wordProgress, setWordProgress] = useState<number[]>([])
 
@@ -43,6 +45,14 @@ export function ScrollBlurText({ text, className = "", startBlur = 80, endBlur =
     return () => window.removeEventListener("scroll", handleScroll)
   }, [words.length])
 
+  if (disableBlur) {
+    return (
+      <h2 ref={containerRef} className={className}>
+        {text}
+      </h2>
+    )
+  }
+
   return (
     <h2 ref={containerRef} className={className}>
       {words.map((word, index) => {
@@ -57,7 +67,7 @@ export function ScrollBlurText({ text, className = "", startBlur = 80, endBlur =
               filter: `blur(${blur}px)`,
               opacity,
               display: "inline-block",
-              transition: "filter 0.3s ease-out, opacity 0.3s ease-out",
+              transition: disableTransition ? "none" : "filter 0.3s ease-out, opacity 0.3s ease-out",
             }}
           >
             {word}

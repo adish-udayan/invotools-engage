@@ -50,23 +50,7 @@ export function WhyEngageSection() {
   // `animation-timeline: view(); animation-range: exit;` per-card animation.
   const [exitProgress, setExitProgress] = useState<number[]>(cards.map(() => 0))
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-fade-up")
-          }
-        })
-      },
-      { threshold: 0.1 },
-    )
-
-    const elements = sectionRef.current?.querySelectorAll(".reveal")
-    elements?.forEach((el) => observer.observe(el))
-
-    return () => observer.disconnect()
-  }, [])
+  // Animation disabled - all text animations removed from landing page
 
   useEffect(() => {
     let rafId = 0
@@ -104,14 +88,16 @@ export function WhyEngageSection() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16 lg:mb-20">
-          <p className="reveal opacity-0 text-sm uppercase tracking-[0.2em] text-foreground font-bold mb-6">
+          <p className="reveal text-sm uppercase tracking-[0.2em] text-foreground font-bold mb-6">
             Why Invotools Engage?
           </p>
           <ScrollBlurText
             text="Built around the customer's next step. Designed to grow with your business."
-            className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#122A45] text-balance mb-6 font-bold max-w-4xl mx-auto"
+            className="font-serif text-xl md:text-2xl lg:text-3xl xl:text-4xl text-[#122A45] text-balance mb-6 font-bold max-w-4xl mx-auto"
+            disableTransition={true}
+            disableBlur={true}
           />
-          <p className="reveal opacity-0 animation-delay-400 text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="reveal animation-delay-400 text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
             Connect ownership journeys across your existing systems, with reusable workflows, business controls and
             a clear focus on measurable value.
           </p>
@@ -157,7 +143,7 @@ export function WhyEngageSection() {
 
         {/* Footnote */}
         <div
-          className="reveal opacity-0 rounded-2xl border border-slate-200 bg-white p-8 md:p-10 mt-12 lg:mt-16 relative"
+          className="reveal rounded-2xl border border-slate-200 bg-white p-8 md:p-10 mt-12 lg:mt-16 relative"
           style={{ zIndex: cards.length + 1 }}
         >
           <p className="font-bold text-slate-900 mb-2">Built with evolving customer access in mind.</p>

@@ -6,23 +6,7 @@ import { ScrollBlurText } from "./scroll-blur-text"
 export function AiAssistedPurchaseSection() {
   const sectionRef = useRef<HTMLElement>(null)
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-fade-up")
-          }
-        })
-      },
-      { threshold: 0.1 },
-    )
-
-    const elements = sectionRef.current?.querySelectorAll(".reveal")
-    elements?.forEach((el) => observer.observe(el))
-
-    return () => observer.disconnect()
-  }, [])
+  // Animation disabled - all text animations removed from landing page
 
   return (
     <section
@@ -32,18 +16,20 @@ export function AiAssistedPurchaseSection() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Eyebrow */}
-        <p className="reveal opacity-0 text-sm uppercase tracking-[0.2em] text-slate-900 font-bold mb-6">
+        <p className="reveal text-sm uppercase tracking-[0.2em] text-slate-900 font-bold mb-6">
           Beyond the AI-assisted purchase
         </p>
 
         {/* Heading */}
         <ScrollBlurText
           text="When AI helps make the purchase, give customers a reason to remember your brand."
-          className="font-serif text-3xl md:text-4xl lg:text-5xl text-slate-900 text-balance mb-8 font-bold max-w-4xl"
+          className="font-serif text-xl md:text-2xl lg:text-3xl xl:text-4xl text-slate-900 text-balance mb-8 font-bold max-w-4xl"
+          disableTransition={true}
+          disableBlur={true}
         />
 
         {/* Body text */}
-        <div className="reveal opacity-0 animation-delay-200 max-w-3xl mb-8">
+        <div className="reveal animation-delay-200 max-w-3xl mb-8">
           <p className="text-lg text-slate-700 leading-relaxed mb-6">
             If customers discover and buy through AI assistants, your brand may have fewer direct interactions
             before checkout. What happens after the purchase becomes an opportunity to strengthen relationships,
@@ -56,7 +42,7 @@ export function AiAssistedPurchaseSection() {
         </div>
 
         {/* Info box */}
-        <div className="reveal opacity-0 animation-delay-400 rounded-[40px] bg-white p-10 lg:p-12">
+        <div className="reveal animation-delay-400 rounded-[40px] bg-white p-10 lg:p-12">
           <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">
             Building toward agentic-commerce readiness
           </h3>

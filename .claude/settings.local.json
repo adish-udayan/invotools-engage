@@ -5,7 +5,8 @@
       "Bash(npm uninstall *)",
       "Bash(lsof -ti:3000 -sTCP:LISTEN)",
       "Bash(xargs -r kill)",
-      "Bash(npx tsc *)"
+      "Bash(npx tsc *)",
+      "Bash(pnpm dev *)"
     ]
   }
 }

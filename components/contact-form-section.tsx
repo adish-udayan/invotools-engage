@@ -10,6 +10,8 @@ export function ContactFormSection() {
     message: "",
   })
 
+  // Animation disabled - all text animations removed from landing page
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({
@@ -30,7 +32,7 @@ export function ContactFormSection() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Left content */}
           <div>
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-5xl font-bold text-[#122A45] mb-8">
+            <h2 className="font-serif text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-[#122A45] mb-8">
               Choose one customer journey to improve first.
             </h2>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">

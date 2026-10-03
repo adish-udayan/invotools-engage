@@ -187,6 +187,62 @@ html {
   animation: zoom-in 1.2s ease-out forwards;
 }
 
+/* Process journey: connectors run vertically on mobile, horizontally from lg */
+.journey-fill {
+  transform-origin: top;
+  transform: scaleY(var(--fill, 0));
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.journey-ring {
+  transition: stroke-dashoffset 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.journey-pulse {
+  left: -2.5px;
+  top: 0;
+  opacity: 0;
+  animation: journey-pulse-y 4.4s ease-in-out infinite;
+}
+
+@keyframes journey-pulse-y {
+  0% { top: 0; opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@keyframes journey-pulse-x {
+  0% { left: 0; opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+@media (min-width: 1024px) {
+  .journey-fill {
+    transform-origin: left;
+    transform: scaleX(var(--fill, 0));
+  }
+
+  .journey-pulse {
+    left: 0;
+    top: -2.5px;
+    animation-name: journey-pulse-x;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journey-fill,
+  .journey-ring {
+    transition: none;
+  }
+
+  .journey-pulse {
+    display: none;
+  }
+}
+
 /* Hide scrollbar for carousel while maintaining scroll functionality */
 .scrollbar-hide {
   -ms-overflow-style: none;

@@ -7,23 +7,7 @@ import { ArrowRight } from 'lucide-react';
 export function MissionSection() {
   const sectionRef = useRef<HTMLElement>(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fade-up');
-          }
-        });
-      },
-      { threshold: 0.1 },
-    );
-
-    const elements = sectionRef.current?.querySelectorAll('.reveal');
-    elements?.forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
+  // Animation disabled - all text animations removed from landing page
 
   return (
     <section ref={sectionRef} id="mission" className="py-24 lg:py-32 px-6">
@@ -47,17 +31,17 @@ export function MissionSection() {
         <div className="relative px-6 lg:px-8 py-16 lg:py-10">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Image - removed as we now have background */}
-            <div className="reveal opacity-0 order-2 lg:order-1"></div>
+            <div className="reveal order-2 lg:order-1"></div>
 
             {/* Content */}
             <div className="order-1 lg:order-2">
-              <p className="reveal opacity-0 text-sm uppercase tracking-[0.2em] text-accent font-medium mb-4">
+              <p className="reveal text-sm uppercase tracking-[0.2em] text-accent font-medium mb-4">
                 Our Vision
               </p>
-              <h2 className="reveal opacity-0 animation-delay-200 font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-background text-balance mb-8">
+              <h2 className="reveal animation-delay-200 font-serif text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium text-background text-balance mb-8">
                 Reconnecting humans with their deep nature
               </h2>
-              <div className="reveal opacity-0 animation-delay-400 space-y-6 text-background/90 leading-relaxed">
+              <div className="reveal animation-delay-400 space-y-6 text-background/90 leading-relaxed">
                 <p>
                   At Biometic, we believe that true well-being comes from the
                   harmony between modern science and ancestral wisdom. Our
@@ -71,7 +55,7 @@ export function MissionSection() {
                   researchers, practitioners, and concerned individuals.
                 </p>
               </div>
-              <div className="reveal opacity-0 animation-delay-600 mt-10">
+              <div className="reveal animation-delay-600 mt-10">
                 <Button
                   size="lg"
                   className="bg-background text-foreground hover:bg-background/90 rounded-full px-8 group"
