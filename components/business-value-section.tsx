@@ -70,7 +70,7 @@ export function BusinessValueSection() {
             <h3 className="font-serif text-2xl font-medium text-slate-900 mb-4">For your customers</h3>
             <p className="text-slate-600 leading-relaxed">
               Purchase information, relevant guidance and clear routes to help in a connected branded
-              experience—with next steps that reflect what they own.
+              experience with next steps that reflect what they own.
             </p>
           </div>
           <div>

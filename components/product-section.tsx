@@ -39,7 +39,7 @@ export function ProductSection() {
             disableBlur={true}
           />
           <p className="mt-6 text-base leading-relaxed text-[#222222] sm:text-lg">
-            You invest in winning the purchase. What happens next shapes the customer relationship—and the opportunity to earn the next sale.
+            You invest in winning the purchase. What happens next shapes the customer relationship and the opportunity to earn the next sale.
           </p>
           <p className="mt-4 text-base font-semibold leading-relaxed text-[#111111] sm:text-lg">
             Order updates, tracking, product guidance, support and rewards can each work well. But the experience between them can remain disconnected.
@@ -75,7 +75,7 @@ export function ProductSection() {
         <div className="mt-20 grid gap-10 border-b border-[#0b1d35]/60 pb-14 md:grid-cols-2 md:gap-16 md:px-12">
           <div>
             <h3 className="text-2xl font-medium tracking-[-0.03em] text-[#111111]">More brands. More systems. More effort.</h3>
-            <p className="mt-4 max-w-xl leading-relaxed text-[#222222]">Separate workflows and vendor roadmaps make changes harder to coordinate—and experiences harder to keep consistent across brands, markets and channels.</p>
+            <p className="mt-4 max-w-xl leading-relaxed text-[#222222]">Separate workflows and vendor roadmaps make changes harder to coordinate and experiences harder to keep consistent across brands, markets and channels.</p>
           </div>
           <div>
             <h3 className="text-2xl font-medium tracking-[-0.03em] text-[#111111]">AI answers need a path to resolution.</h3>

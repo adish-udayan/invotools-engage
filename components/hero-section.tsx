@@ -41,7 +41,7 @@ export function HeroSection() {
           />
           <p className="mb-4 max-w-2xl text-base leading-relaxed text-[#111827] sm:text-lg">
             InvoTools Engage connects purchase information, helpful guidance,
-            and relevant recommendations in one branded experience—helping
+            and relevant recommendations in one branded experience helping
             customers get more from their purchase, creating opportunities for
             repeat sales, and reducing the need to contact support for routine
             questions.

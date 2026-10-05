@@ -102,7 +102,7 @@ export function ScienceSection() {
           />
           <p className="reveal animation-delay-400 text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Bring purchase information, timely guidance, and relevant next steps together in your branded customer
-            portal—helping customers throughout product ownership while creating opportunities for repeat revenue
+            portal helping customers throughout product ownership while creating opportunities for repeat revenue
             and more efficient service.
           </p>
         </div>
